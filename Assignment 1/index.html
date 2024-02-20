@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story Maker</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px;
+    }
+
+    .column {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      border-radius: 15px;
+      background-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 15px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      border-radius: 50%;
+      background-color: #3498db;
+      color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      background-color: #2980b9;
+    }
+
+    .wordList {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .wordList li {
+      cursor: pointer;
+      margin: 5px;
+      padding: 8px;
+      background-color: #ecf0f1;
+      border-radius: 5px;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .wordList li:hover {
+      background-color: #bdc3c7;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .heading {
+      color: #fff;
+      font-size: 36px;
+      margin-top: 20px;
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <h1 class="heading">Story Maker</h1>
+
+  <div class="container">
+    <div class="column" id="nounColumn">
+      <button class="button" onclick="highlightNext('nounList')">Choose</button>
+      <ul class="wordList" id="nounList">
+        <li data-index="0">My mom</li>
+        <li data-index="1">The teacher</li>
+        <li data-index="2">The King</li>
+        <li data-index="3">An old lady</li>
+        <li data-index="4">That robot</li>
+        <li data-index="5">A unicorn</li>
+      </ul>
+    </div>
+
+    <div class="column" id="verbColumn">
+      <button class="button" onclick="highlightNext('verbList')">Choose</button>
+      <ul class="wordList" id="verbList">
+        <li data-index="0">danced with</li>
+        <li data-index="1">sat on</li>
+        <li data-index="2">ran with</li>
+        <li data-index="3">ate</li>
+        <li data-index="4">flew with</li>
+        <li data-index="5">whispered to</li>
+      </ul>
+    </div>
+
+    <div class="column" id="adjColumn">
+      <button class="button" onclick="highlightNext('adjList')">Choose</button>
+      <ul class="wordList" id="adjList">
+        <li data-index="0">a scary</li>
+        <li data-index="1">a goofy</li>
+        <li data-index="2">a happy</li>
+        <li data-index="3">a big</li>
+        <li data-index="4">a colorful</li>
+        <li data-index="5">a mysterious</li>
+      </ul>
+    </div>
+
+    <div class="column" id="thingColumn">
+      <button class="button" onclick="highlightNext('thingList')">Choose</button>
+      <ul class="wordList" id="thingList">
+        <li data-index="0">cat</li>
+        <li data-index="1">elephant</li>
+        <li data-index="2">lion</li>
+        <li data-index="3">monkey</li>
+        <li data-index="4">giraffe</li>
+        <li data-index="5">panda</li>
+      </ul>
+    </div>
+
+    <div class="column" id="placeColumn">
+      <button class="button" onclick="highlightNext('placeList')">Choose</button>
+      <ul class="wordList" id="placeList">
+        <li data-index="0">in my soup</li>
+        <li data-index="1">on the moon</li>
+        <li data-index="2">under the bed</li>
+        <li data-index="3">at the park</li>
+        <li data-index="4">in a secret garden</li>
+        <li data-index="5">on a tropical island</li>
+      </ul>
+    </div>
+  </div>
+
+  <button class="button" onclick="surprise()">Surprise</button>
+  <button class="button" onclick="showSentence()">Show Sentence</button>
+  <button class="button" onclick="resetChoices()">Reset</button>
+
+  <div id="output"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
